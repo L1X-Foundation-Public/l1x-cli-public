@@ -1,0 +1,83 @@
+{
+  "name": "@l1x/l1x-cli-beta",
+  "version": "1.1.6",
+  "description": "CLI tool for deploying L1XVM contracts, managing transactions, and interacting with smart contracts seamlessly within the L1X ecosystem.",
+  "keywords": [
+    "l1x"
+  ],
+  "homepage": "https://github.com/L1X-Foundation/l1x-cli.git",
+  "bugs": "https://github.com/L1X-Foundation/l1x-cli/issues",
+  "repository": "https://github.com/L1X-Foundation/l1x-cli.git",
+  "license": "Apache License 2.0",
+  "author": "L1XFoundation",
+  "type": "module",
+  "exports": "./lib/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "@l1x/l1x-cli-beta": "./bin/run.js"
+  },
+  "files": [
+    "/bin",
+    "/dist"
+  ],
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b"
+  },
+  "oclif": {
+    "bin": "l1x-cli-beta",
+    "commands": "./dist/commands",
+    "dirname": "l1x-cli-beta",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-autocomplete",
+      "@oclif/plugin-update"
+    ],
+    "topicSeparator": " ",
+    "topics": {
+      "account": {
+        "description": "Retrieve L1X account balance, nonce, and state."
+      },
+      "contract": {
+        "description": "Deploy, initialize, call functions, and view functions on L1XVM contracts."
+      },
+      "tx": {
+        "description": "Retrieve L1X transaction receipts and events for a given hash"
+      },
+      "wallet": {
+        "description": "Create, import, set default, and view L1X wallet addresses."
+      },
+      "transfer": {
+        "description": "Send L1X tokens from a default or imported L1X wallet address."
+      }
+    }
+  },
+  "dependencies": {
+    "@l1x/l1x-wallet-sdk": "^1.2.0",
+    "@oclif/core": "^3",
+    "@oclif/plugin-autocomplete": "^3.0.16",
+    "@oclif/plugin-help": "^6",
+    "@oclif/plugin-update": "^4.2.7",
+    "ethereumjs-wallet": "^1.0.2",
+    "web3-validator": "^2.0.5"
+  },
+  "devDependencies": {
+    "@oclif/prettier-config": "^0.2.1",
+    "@oclif/test": "^3",
+    "@types/chai": "^4",
+    "@types/mocha": "^10",
+    "@types/node": "^18",
+    "chai": "^4",
+    "eslint": "^8",
+    "eslint-config-oclif": "^5",
+    "eslint-config-oclif-typescript": "^3",
+    "eslint-config-prettier": "^9.1.0",
+    "mocha": "^10",
+    "oclif": "^4.7.6",
+    "shx": "^0.3.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

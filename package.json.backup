@@ -1,0 +1,69 @@
+{
+  "name": "@l1x/l1x-cli-experimental",
+  "version": "1.0.1",
+  "description": "L1X CLI Program",
+  "keywords": [
+    "l1x"
+  ],
+  "homepage": "https://github.com/L1X-Foundation/l1x-cli.git",
+  "bugs": "https://github.com/L1X-Foundation/l1x-cli/issues",
+  "repository": "https://github.com/L1X-Foundation/l1x-cli.git",
+  "license": "MIT",
+  "author": "L1XFoundation",
+  "type": "module",
+  "exports": "./lib/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "@l1x/l1x-cli-experimental": "./bin/run.js"
+  },
+  "files": [
+    "/bin",
+    "/dist",
+    "/oclif.manifest.json"
+  ],
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b",
+    "lint": "eslint . --ext .ts",
+    "prepack": "npm run build && oclif manifest && oclif readme",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "prepare": "npm run build",
+    "version": "oclif readme && git add README.md"
+  },
+  "oclif": {
+    "bin": "l1x",
+    "commands": "./dist/commands",
+    "dirname": "l1x",
+    "plugins": [
+      "@oclif/plugin-help"
+    ],
+    "topicSeparator": " "
+  },
+  "dependencies": {
+    "@l1x/l1x-wallet-sdk": "^1.1.9",
+    "@oclif/core": "^3",
+    "@oclif/plugin-help": "^6",
+    "@oclif/plugin-plugins": "^5",
+    "ethereumjs-wallet": "^1.0.2",
+    "web3-validator": "^2.0.5"
+  },
+  "devDependencies": {
+    "@oclif/prettier-config": "^0.2.1",
+    "@oclif/test": "^3",
+    "@types/chai": "^4",
+    "@types/mocha": "^10",
+    "@types/node": "^18",
+    "chai": "^4",
+    "eslint": "^8",
+    "eslint-config-oclif": "^5",
+    "eslint-config-oclif-typescript": "^3",
+    "eslint-config-prettier": "^9.1.0",
+    "mocha": "^10",
+    "oclif": "^4.7.6",
+    "shx": "^0.3.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

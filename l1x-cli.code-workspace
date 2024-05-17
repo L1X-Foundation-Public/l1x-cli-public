@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../l1x-core-v2-user-deployment"
+		},
+		{
+			"path": "../l1x-wallet-sdk"
+		}
+	],
+	"settings": {}
+}
